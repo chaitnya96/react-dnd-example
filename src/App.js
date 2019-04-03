@@ -72,6 +72,7 @@ class App extends Component {
           <Grid.Column>
             {
               this.state.item.map(data => <ItemDrag key={data.id} text={data} handleDrop={this.handleDrop} />)
+              // <DropBasket name='items' onBasket={this.onBasket} onDrop={this.onDrop} item={this.state.item} handleDrop={this.handleDrop} />
             }
           </Grid.Column>
           {

@@ -2,6 +2,7 @@ import React from 'react'
 import { findDOMNode } from 'react-dom'
 import { DropTarget } from 'react-dnd';
 import ItemDrag from './draggebleItem'
+import itemType from './itemType'
 
 class DropBasket extends React.Component {
     state={
@@ -44,4 +45,4 @@ function collect(connect, monitor) {
     }
 }
 
-export default DropTarget('itemDrag', spec, collect)(DropBasket);
+export default DropTarget(itemType.ITEM, spec, collect)(DropBasket);

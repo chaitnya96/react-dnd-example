@@ -2,6 +2,7 @@ import React from 'react'
 import { DragSource } from 'react-dnd';
 import './App.css'
 import { Segment } from 'semantic-ui-react';
+import itemType from './itemType'
 
 class ItemDrag extends React.Component {
     render() {
@@ -41,4 +42,4 @@ function collect(connect, monitor) {
     }
 }
 
-export default DragSource('itemDrag', cardSource, collect)(ItemDrag)
+export default DragSource(itemType.ITEM, cardSource, collect)(ItemDrag)
