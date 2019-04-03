@@ -10,14 +10,10 @@ class DropBasket extends React.Component {
     componentWillReceiveProps(nextState){
         this.setState({
             item : nextState.item
-        })
+        },console.log(this.state))
     }
     handleDrop = item1 => {
-        this.setState(prevState => {
-          return {
-            item: prevState.item.filter(item => item.id !== item1.id)
-          }
-        })
+       console.log(item1)
       }
     render() {
         const { connectDropTarget, hovered, item, isOver, canDrop, name } = this.props;

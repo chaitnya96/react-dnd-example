@@ -27,7 +27,7 @@ class App extends Component {
   }
 
   previewGenerator(itemType, item, style) {
-    return <div as='h1' style={style}>{item.text}</div>
+    return <div as='h1' style={style}>{item.name}</div>
   }
 
   onBasket = (value) => {
@@ -35,8 +35,27 @@ class App extends Component {
   }
   onDrop = (name, item) => {
     this.Answer = this.state.Baskets;
-    this.Answer[name] !== undefined ? this.Answer[name].push(item) : this.Answer[name] = [item]
-    console.log(this.Answer)
+    let bucketNames=Object.keys(this.Answer);
+    let prevBucketName="";
+    bucketNames.map(data=> this.Answer[data].includes(item)? prevBucketName = data: null);
+    console.log(prevBucketName,"---",name);
+    if(prevBucketName === name){
+
+    }else
+    {
+      if(prevBucketName)
+      {
+        if(this.Answer[prevBucketName].includes(item)){
+          console.log("in delete");
+           this.Answer[prevBucketName].splice(this.Answer[prevBucketName].indexOf(item),1);
+          console.log("after delete",this.Answer[name]);
+          // this.Answer[name] !== undefined ?  this.Answer[name].push(item) : this.Answer[name] = [item]
+
+        }
+      }
+        this.Answer[name] !== undefined ?  this.Answer[name].push(item) : this.Answer[name] = [item]
+  }
+    console.log(this.Answer);
   }
   handleDrop = item1 => {
     this.setState(prevState => {
